@@ -1,7 +1,10 @@
-# receiver.py
 import os
 from pynetdicom import AE, evt
-from pynetdicom.sop_class import CTImageStorage, MRImageStorage
+from pynetdicom.sop_class import (
+    CTImageStorage,
+    MRImageStorage,
+    UltrasoundImageStorage,  # Add Ultrasound SOP class
+)
 from pydicom.dataset import Dataset
 
 STORE_DIR = "received_dicoms"
@@ -18,8 +21,10 @@ def handle_store(event):
 
 def start_dicom_server(ae_title='MY_AI_RECEIVER', port=11112):
     ae = AE(ae_title=ae_title)
+    # Add support for Ultrasound Image Storage
     ae.add_supported_context(CTImageStorage)
     ae.add_supported_context(MRImageStorage)
+    ae.add_supported_context(UltrasoundImageStorage)  # Support Ultrasound
 
     handlers = [(evt.EVT_C_STORE, handle_store)]
     print(f"[✓] Starting DICOM Receiver on port {port}")
