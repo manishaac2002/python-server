@@ -31,3 +31,7 @@ def view_dicom_metadata(filename: str):
         "StudyDate": ds.get("StudyDate", "Unknown"),
         "SOPInstanceUID": ds.get("SOPInstanceUID", "Unknown"),
     }
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=8000)
