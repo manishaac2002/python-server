@@ -1,0 +1,3 @@
+ae_title = MY_AI_RECEIVER
+server running port = 11112
+server ip address = aws ip address

@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+
+# Environment variable files
+.env
+
+# Logs
+*.log
+log.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# IDE settings
+.vscode/
+.idea/
+
+# DICOM data
+received_dicoms/
